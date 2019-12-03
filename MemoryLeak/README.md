@@ -21,3 +21,4 @@ and many more
 
 ### Reference materials:
 https://proandroiddev.com/everything-you-need-to-know-about-memory-leaks-in-android-d7a59faaf46a
+https://android.jlelse.eu/memory-leak-patterns-in-android-4741a7fcb570
