@@ -13,8 +13,6 @@ interface Emoji {
             get() = "✌️ ✌️ ✌️"
         val Wave: String
             get() = "✋ ✋ ✋"
-        val Up: String
-            get() = "☝️ ☝️ ☝️"
         val Phone: String
             get() = "☎️ ☎️ ☎️"
         val Time: String
@@ -79,6 +77,12 @@ interface Emoji {
             get() = "✅ ✅ ✅"
         val start: String
             get() = "♿️ ♿️ ♿️"
+        val up: String
+            get() = "⬆ ⬆ ⬆️"
+        val down: String
+            get() = "⬇ ⬇ ⬇️"
+        val move: String
+            get() = "↔ ↔ ↔️"
         val Miscellaneous: String
             get() = "◀️ ⬇️ ▶️ ⬅️ ↙️ ↘️ ➡️ ⬆️ ↖️ ↗️ ⏬ ⏫ ⤵️ ⤴️ ↩️ ↪️ ↔️ ↕️ ⏪ ⏩ ℹ️" +
                     "♿️㊙️ ㊗️ Ⓜ️ ⛔️ ✳️ ❇️ ✴️ " +
