@@ -7,16 +7,16 @@ import io.reactivex.*
 
 inline fun <reified T> printEvent(tag: String, success: T?, error: Throwable?) =
     when {
-        success == null && error == null -> Log.d(tag, "Complete") /* Only with Maybe */
-        success != null -> Log.d(tag, "Success $success")
-        error != null -> Log.e(tag, "Error $error")
+        success == null && error == null -> println("$tag Complete") /* Only with Maybe */
+        success != null -> println("$tag Success $success")
+        error != null -> println("$tag Error $error")
         else -> -1 /* Cannot happen*/
     }
 
 inline fun printEvent(tag: String, error: Throwable?) =
     when {
-        error != null -> Log.d(tag, "Error $error")
-        else -> Log.d(tag, "Complete")
+        error != null -> println("$tag Error $error")
+        else -> println("$tag Complete")
     }
 
 /**
@@ -47,8 +47,8 @@ inline fun <reified T> Maybe<T>.log(tag: String? = null): Maybe<T> {
 inline fun Completable.log(tag: String? = null): Completable {
     val line = tag ?: tag()
     return doOnEvent { printEvent(line, it) }
-        .doOnSubscribe { Log.d(line, "Subscribe") }
-        .doOnDispose { Log.d(line, "Dispose") }
+        .doOnSubscribe { println("$line Subscribe") }
+        .doOnDispose { println("$line Dispose") }
 }
 
 
