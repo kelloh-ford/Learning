@@ -2,7 +2,6 @@
 
 package com.ford.logrxoperators
 
-import android.util.Log
 import io.reactivex.*
 
 inline fun <reified T> printEvent(tag: String, success: T?, error: Throwable?) =
