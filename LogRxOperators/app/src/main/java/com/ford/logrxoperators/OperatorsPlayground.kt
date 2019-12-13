@@ -1,5 +1,7 @@
 package com.ford.logrxoperators
 
+import io.reactivex.Observable
+
 /*
 
  Test the behaviour of observables, operators, singles, and so on by using the
@@ -14,17 +16,21 @@ package com.ford.logrxoperators
 
 fun main() {
 
-
     //takeUntil
 
-    firstObservableCompletesBeforeSecondStartsTakeUntil()
-    firstObservableFiresFirstTakeUntil()
-    secondObservableFiresFirstTakeUntil()
+    demoUntilComplete(firstObservableCompletesBeforeSecondStartsTakeUntil(),"First observable completes before second starts:")
+    demoUntilComplete(firstObservableFiresFirstTakeUntil(),"First observable fires before the second observable:")
+    demoUntilComplete(secondObservableFiresFirstTakeUntil(),"Second observable fires before the first observable:")
 
+   // enumerated (custom operator)
+
+    demoUntilComplete(stringListEnumerated(),"Enumerating a list of strings: ",printResults = true)
 
 
 
 }
+
+
 
 
 

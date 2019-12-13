@@ -4,14 +4,11 @@ import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 
 
-
 /*
 
 Examples of the takeUntil operator. For more information, go to https://rxmarbles.com/#takeUntil
 
  */
-
-
 
 
 /*
@@ -25,21 +22,12 @@ observable will be disposed, and subsequently the first observable will then be 
  */
 
 
-fun firstObservableFiresFirstTakeUntil() {
-
+fun firstObservableFiresFirstTakeUntil(): Observable<Long> {
 
     val obsA = Observable.interval(2, TimeUnit.SECONDS).log(Emoji.completed)
-
     val obsB = Observable.interval(10, TimeUnit.SECONDS).log(Emoji.b_emoji)
 
-
-    obsA.takeUntil(obsB).subscribe {
-
-    }
-
-    Thread.sleep(11000)
-
-
+    return obsA.takeUntil(obsB)
 
 }
 
@@ -54,19 +42,12 @@ observable will then dispose.
 
  */
 
-fun secondObservableFiresFirstTakeUntil() {
-
+fun secondObservableFiresFirstTakeUntil(): Observable<Long> {
 
     val obsA = Observable.interval(6, TimeUnit.SECONDS).log(Emoji.completed)
-
     val obsB = Observable.interval(3, TimeUnit.SECONDS).log(Emoji.b_emoji)
 
-    obsA.takeUntil(obsB).subscribe {
-
-    }
-
-    Thread.sleep(11000)
-
+    return obsA.takeUntil(obsB)
 
 }
 
@@ -79,19 +60,12 @@ because the second observable never emitted an item.
 
  */
 
-fun firstObservableCompletesBeforeSecondStartsTakeUntil() {
-
+fun firstObservableCompletesBeforeSecondStartsTakeUntil(): Observable<Long> {
 
     val obsA = Observable.timer(5, TimeUnit.SECONDS).log(Emoji.completed)
-
     val obsB = Observable.timer(10, TimeUnit.SECONDS).log(Emoji.b_emoji)
 
-    obsA.takeUntil(obsB).subscribe {
 
-    }
-
-    Thread.sleep(11000)
-
-
+    return obsA.takeUntil(obsB)
 }
 

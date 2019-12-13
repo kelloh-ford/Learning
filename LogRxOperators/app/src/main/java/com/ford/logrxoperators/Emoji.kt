@@ -1,4 +1,5 @@
 package com.ford.logrxoperators
+
 interface Emoji {
     companion object {
         val Smile: String
@@ -63,7 +64,6 @@ interface Emoji {
             get() = "⚡️ ⚡️ ⚡️"
         val Circle: String
             get() = "⭕️ ⭕️ ⭕️️"
-
         val Warning: String
             get() = "⚠️ ⚠️ ⚠️"
         val Pencil: String
