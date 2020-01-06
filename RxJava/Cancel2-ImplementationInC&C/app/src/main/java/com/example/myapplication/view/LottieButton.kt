@@ -55,6 +55,7 @@ class LottieButton(
                     .concatMap {
                         val timer = Timer("PressAndHold", true).timerObservable
                         Observable.ambArray(touchUpObservable.map { false }, timer.map { true })
+                            .take(1)
                             .observeOn(AndroidSchedulers.mainThread())
                             .doOnNext { pauseAnimation() }
                             .map { Pair(it, commands) }.log()
